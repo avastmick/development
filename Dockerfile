@@ -1,9 +1,11 @@
-FROM ubuntu:xenial
+FROM avastmick/development-base
 
 MAINTAINER avastmick <avastmick.outlook.com>
 
 WORKDIR /usr/local/repos
 
 RUN apt-get update && \
-    apt-get install --no-install-recommends -y build-essential python openssl ca-certificates libssl-dev uuid-dev curl git sudo file && \
-    apt-get clean
+    apt-get clean && \
+    gpg --keyserver hkp://keys.gnupg.net --recv-keys 7B3B09DC && \
+    curl -sf https://raw.githubusercontent.com/brson/multirust/master/blastoff.sh | sh -s -- --yes && \
+    multirust default stable
