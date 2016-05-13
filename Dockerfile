@@ -20,4 +20,4 @@ RUN apt-get update && \
     wget && \
     apt-get clean
 
-RUN pip install virtualenvwrapper
+RUN pip3 install virtualenvwrapper
