@@ -17,12 +17,11 @@ RUN apt-get update && \
     libffi-dev libxslt1-dev libssl-dev libxml2-dev \
     nano \
     openssl \
-    python3 python3-dev python3-pip python3-setuptools \
+    python3 python3-dev python3-pip python3-setuptools virtualenvwrapper \
     sudo \
     uuid-dev \
     unzip \
     wget && \
     apt-get clean
 
-RUN pip3 install --upgrade setuptools pip wheel && \
-    pip3 install virtualenvwrapper
+RUN pip3 install --upgrade setuptools pip wheel
