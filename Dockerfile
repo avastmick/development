@@ -15,6 +15,7 @@ RUN apt-get update && \
     file \
     git \
     libffi-dev libxslt1-dev libssl-dev libxml2-dev \
+    nano \
     openssl \
     python3 python3-dev python3-pip python3-setuptools \
     sudo \
