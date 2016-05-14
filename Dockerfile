@@ -9,9 +9,10 @@ RUN apt-get update && \
     build-essential \
     ca-certificates \
     curl \
-    file \ 
+    file \
     git \
     libffi-dev libxslt1-dev libssl-dev libxml2-dev \
+    nano \
     openssl \
     python python-dev python-pip python-setuptools \
     sudo \
