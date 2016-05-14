@@ -2,6 +2,9 @@ FROM ubuntu:xenial
 
 MAINTAINER avastmick <avastmick.outlook.com>
 
+# To run locally:
+# docker run --name python-box -i -t -v $(pwd):/usr/local/repos avastmick/development-base:python3 /bin/bash
+
 WORKDIR /usr/local/repos
 
 RUN apt-get update && \
@@ -20,4 +23,5 @@ RUN apt-get update && \
     wget && \
     apt-get clean
 
-RUN pip3 install virtualenvwrapper
+RUN pip3 install --upgrade setuptools pip wheel && \
+    pip3 install virtualenvwrapper
