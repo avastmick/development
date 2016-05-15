@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM avastmick/development:base
 
 MAINTAINER avastmick <avastmick.outlook.com>
 
@@ -20,19 +20,8 @@ RUN groupadd -g ${gid} ${group} \
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
-    build-essential \
-    ca-certificates \
-    curl \
-    file \
-    git \
-    libffi-dev libxslt1-dev libssl-dev libxml2-dev \
-    nano \
-    openssl \
     python3 python3-dev python3-pip python3-setuptools virtualenvwrapper \
-    sudo \
-    uuid-dev \
-    unzip \
-    wget && \
+    && \
     apt-get clean
 
 RUN pip3 install --upgrade setuptools pip wheel
