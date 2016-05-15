@@ -27,6 +27,8 @@ RUN apt-get update && \
 
 RUN pip3 install --upgrade setuptools pip wheel
 
+# Expose a port for web application traffic (note the variation from 8080 to avoidn host clashes)
+EXPOSE 8088
 # Set up to run in $HOME as the new $user
 WORKDIR ${AVASTMICK_HOME}
 USER ${user}
