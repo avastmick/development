@@ -14,7 +14,7 @@ ARG gid=1000
 # add a viable user, instead of root as some tools don't play well with root
 RUN groupadd -g ${gid} ${group} \
     && useradd -d "$AVASTMICK_HOME" -u ${uid} -g ${gid} -m -s /bin/bash ${user} \
-    && adduser ${user} sudo /
+    && adduser ${user} sudo \
     && echo ${user}:temp | chpasswd \
     && chage -d 0 ${user}
 
