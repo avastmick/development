@@ -15,11 +15,13 @@ The idea is that you don't need to install any development tools on your machine
 |image name |installed|notes|
 |:---|:---|:---|
 |``ubuntu:xenial``|Ubuntu 16.04|Base image
-|``avastmick/development-env:base``|standard tools|The base image|
-|``avastmick/development-env:rust``|multirust||
+|``avastmick/development``|standard tools|The ``base`` image|
+|_``avastmick/development:python``_|**This image**|A set of python development tools|
+|``avastmick/development:rust``|multirust||
 
 
 ## branches
 
-1. ``latest``: ``latest`` is a basic Ubuntu:Xenial image with Python, Git, SSH etc. [TODO list out]
-2. ``rust`` : ``rust`` is built upon the base with multirust installed
+1. ``master``: ``latest`` is a basic Ubuntu:Xenial image with Python, Git, SSH etc. [TODO list out]
+2. ``python``: ``python`` is built on ``base`` with a multienv python installation
+2. ``rust`` : ``rust`` is built upon the ``base`` with multirust installed
