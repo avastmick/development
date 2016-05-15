@@ -3,7 +3,7 @@ FROM avastmick/development:base
 MAINTAINER avastmick <avastmick.outlook.com>
 
 # To run locally:
-# docker run --name python-box -i -t -v $(pwd):/usr/local/repos avastmick/development-base:python3 /bin/bash
+# docker run --name python-box -i -t -v $(pwd):/usr/local/repos avastmick/development:python /bin/bash
 ENV AVASTMICK_HOME /usr/local/repos
 
 ARG user=avastmick
@@ -20,6 +20,7 @@ RUN groupadd -g ${gid} ${group} \
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
+    python python-dev python-pip python-setuptools \
     python3 python3-dev python3-pip python3-setuptools virtualenvwrapper \
     && \
     apt-get clean
