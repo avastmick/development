@@ -11,12 +11,12 @@ ARG group=avastmick
 ARG uid=1000
 ARG gid=1000
 
-# Jenkins is run with user `jenkins`, uid = 1000
-# If you bind mount a volume from the host or a data container,
-# ensure you use the same uid
+# add a viable user, instead of root as some tools don't play well with root
 RUN groupadd -g ${gid} ${group} \
     && useradd -d "$AVASTMICK_HOME" -u ${uid} -g ${gid} -m -s /bin/bash ${user} \
-    && adduser ${user} sudo
+    && adduser ${user} sudo /
+    && echo ${user}:temp | chpasswd \
+    && chage -d 0 ${user}
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
