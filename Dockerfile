@@ -23,11 +23,10 @@ RUN apt-get update && \
     python python-dev python-pip python-setuptools \
     python3 python3-dev python3-pip python3-setuptools \
     virtualenvwrapper \
-    python-django
     && \
     apt-get clean
 
-RUN pip3 install --upgrade setuptools pip wheel
+RUN pip3 install --upgrade setuptools pip wheel django
 
 # Expose a port for web application traffic (note the variation from 8080 to avoidn host clashes)
 EXPOSE 8088
