@@ -1,4 +1,4 @@
-# development-env
+# development environment
 
 A set of Docker images to simplify local development.
 
@@ -17,7 +17,7 @@ The idea is that you don't need to install any development tools on your machine
 |``ubuntu:xenial``|Ubuntu 16.04|Base image
 |``avastmick/development``|standard tools|The ``base`` image|
 |_``avastmick/development:python``_|**This image**|A set of python development tools|
-|``avastmick/development:rust``|multirust||
+|``avastmick/development:rust``|multirust|An image using multirust to manage rust dev tools|
 
 
 ## branches
