@@ -21,7 +21,9 @@ RUN groupadd -g ${gid} ${group} \
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
     python python-dev python-pip python-setuptools \
-    python3 python3-dev python3-pip python3-setuptools virtualenvwrapper \
+    python3 python3-dev python3-pip python3-setuptools \
+    virtualenvwrapper \
+    python-django
     && \
     apt-get clean
 
