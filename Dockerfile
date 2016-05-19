@@ -24,7 +24,6 @@ RUN apt-get update && \
     nano \
     openssl \
     sudo \
-    supervisor \
     uuid-dev \
     unzip \
     wget && \
@@ -32,7 +31,10 @@ RUN apt-get update && \
     mkdir -p /var/log/supervisor && \
     mkdir -p /etc/supervisor/conf.d
 
-ADD supervisor.conf /etc/supervisor.conf
+ENV TINI_SHA 066ad710107dc7ee05d3aa6e4974f01dc98f3888
 
-# default command
-CMD ["supervisord", "-c", "/etc/supervisor.conf"]
+# Use tini as subreaper in Docker container to adopt zombie processes
+RUN curl -fsSL https://github.com/krallin/tini/releases/download/v0.5.0/tini-static -o /bin/tini && chmod +x /bin/tini \
+  && echo "$TINI_SHA  /bin/tini" | sha1sum -c -
+
+ENTRYPOINT ["/bin/tini", "--"]
