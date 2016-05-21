@@ -27,9 +27,7 @@ RUN apt-get update && \
     uuid-dev \
     unzip \
     wget && \
-    apt-get clean && \
-    mkdir -p /var/log/supervisor && \
-    mkdir -p /etc/supervisor/conf.d
+    apt-get clean
 
 ENV TINI_SHA 066ad710107dc7ee05d3aa6e4974f01dc98f3888
 
