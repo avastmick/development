@@ -13,7 +13,8 @@ MAINTAINER avastmick <avastmick.outlook.com>
 # This is where any repositories should be mounted
 WORKDIR /usr/local/repos
 
-RUN add-apt-repository -y ppa:ubuntu-lxc/lxd-stable
+RUN apt-get install software-properties-common && \
+    add-apt-repository -y ppa:ubuntu-lxc/lxd-stable && \
     apt-get update && \
     golang && \
-    apt-get clean 
+    apt-get clean
