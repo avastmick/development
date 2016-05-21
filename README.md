@@ -17,7 +17,8 @@ The idea is that you don't need to install any development tools on your machine
 |``ubuntu:xenial``|Ubuntu 16.04|Base image
 |``avastmick/development:base``|standard tools|The base image|
 |``avastmick/development:python``|python tools|Typical python dev tooling|
-|``avastmick/development:rust``|multirust||
+|``avastmick/development:rust``|multirust|Simple multirust environment|
+|``avastmick/development:go-lang``|go, |Full go-lang development environment|
 
 
 ## branches
@@ -25,3 +26,4 @@ The idea is that you don't need to install any development tools on your machine
 1. ``master``: ``master`` is a basic Ubuntu:Xenial image with Git, SSH etc. [TODO list out]
 2. ``python``: ``python`` is built on ``base`` with a multienv python installation
 3. ``rust`` : ``rust`` is built upon the base with multirust installed
+4. ``go-lang``: ``go-lang`` is built upon the base with go installed
