@@ -16,5 +16,5 @@ WORKDIR /usr/local/repos
 RUN apt-get install -y software-properties-common && \
     add-apt-repository -y ppa:ubuntu-lxc/lxd-stable && \
     apt-get update && \
-    golang && \
+    apt-get install -y golang && \
     apt-get clean
