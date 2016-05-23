@@ -2,7 +2,7 @@ FROM avastmick/development
 
 MAINTAINER avastmick <avastmick.outlook.com>
 
-###########################################
+#############################################
 #
 # Sets up a local Docker container to allow
 # GOLANG code / application specific environments
