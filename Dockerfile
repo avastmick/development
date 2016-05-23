@@ -21,6 +21,7 @@ RUN apt-get update && \
     file \
     git \
     libffi-dev libxslt1-dev libssl-dev libxml2-dev \
+    make \
     nano \
     openssl \
     sudo \
