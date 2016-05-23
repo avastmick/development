@@ -11,7 +11,7 @@ MAINTAINER avastmick <avastmick.outlook.com>
 ###########################################
 
 ENV AVASTMICK_HOME /home/avastmick
-ENV GOPATH /.go/src/github.com/avastmick
+ENV GOPATH /home/avastmick/.go/src/github.com/avastmick
 
 ARG user=avastmick
 ARG group=avastmick
@@ -37,5 +37,5 @@ EXPOSE 8088
 WORKDIR ${AVASTMICK_HOME}
 USER ${user}
 # Setup the $GOPATH
-RUN mkdir ${GOPATH} && \
+RUN mkdir -p ${GOPATH} && \
     export GOPATH=${GOPATH}
