@@ -18,3 +18,5 @@ RUN apt-get install -y software-properties-common && \
     apt-get update && \
     apt-get install -y golang && \
     apt-get clean
+
+RUN mkdir ~/.go
