@@ -15,8 +15,7 @@ ARG gid=1000
 RUN groupadd -g ${gid} ${group} \
     && useradd -d "$AVASTMICK_HOME" -u ${uid} -g ${gid} -m -s /bin/bash ${user} \
     && adduser ${user} sudo \
-    && echo ${user}:temp | chpasswd \
-    && chage -d 0 ${user}
+    && echo ${user}:temp | chpasswd
 
 RUN apt-get update && \
     apt-get install --no-install-recommends -y \
