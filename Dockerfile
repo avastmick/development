@@ -22,8 +22,7 @@ ARG gid=1000
 RUN groupadd -g ${gid} ${group} \
     && useradd -d "$AVASTMICK_HOME" -u ${uid} -g ${gid} -m -s /bin/bash ${user} \
     && adduser ${user} sudo \
-    && echo ${user}:temp | chpasswd \
-    && chage -d 0 ${user}
+    && echo ${user}:temp | chpasswd
 
 RUN apt-get install -y software-properties-common && \
     add-apt-repository -y ppa:ubuntu-lxc/lxd-stable && \
