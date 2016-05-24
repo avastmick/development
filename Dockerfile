@@ -11,7 +11,7 @@ MAINTAINER avastmick <avastmick.outlook.com>
 ###########################################
 
 ENV AVASTMICK_HOME /home/avastmick
-ENV GOPATH /home/avastmick/.go/src/github.com/avastmick
+ENV GOPATH /home/avastmick/.go
 
 ARG user=avastmick
 ARG group=avastmick
