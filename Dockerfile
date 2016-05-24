@@ -24,6 +24,7 @@ RUN apt-get update && \
     make \
     nano \
     openssl \
+    sshfs \
     sudo \
     uuid-dev \
     unzip \
