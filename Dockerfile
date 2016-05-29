@@ -26,6 +26,7 @@ RUN apt-get update && \
     openssl \
     sshfs \
     sudo \
+    tree \
     uuid-dev \
     unzip \
     wget && \
