@@ -17,8 +17,7 @@ RUN groupadd -g ${gid} ${group} \
 
 RUN apt-get update && \
     apt-get clean && \
-    gpg --keyserver hkp://keys.gnupg.net --recv-keys 7B3B09DC && \
-    curl -sf https://raw.githubusercontent.com/brson/multirust/master/blastoff.sh | sh -s -- --yes && \
+    curl https://sh.rustup.rs -sSf | sh -s -- --yes && \
     multirust default stable
 
 # Expose a port for web application traffic (note the variation from 8080 to avoid host clashes)
