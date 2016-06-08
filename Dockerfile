@@ -16,8 +16,7 @@ RUN groupadd -g ${gid} ${group} \
     && echo ${user}:temp | chpasswd
 
 RUN apt-get update && \
-    apt-get clean && \
-    curl -sSf sh.rustup.rs | sh -s -- -y
+    apt-get clean
 
 # Expose a port for web application traffic (note the variation from 8080 to avoid host clashes)
 EXPOSE 8088
@@ -25,5 +24,6 @@ EXPOSE 8088
 WORKDIR ${AVASTMICK_HOME}
 USER ${user}
 
-RUN echo "export PATH=~/.cargo/bin:$PATH" >> ~/.bashrc && \
+RUN curl -sSf sh.rustup.rs | sh -s -- -y && \
+    echo "export PATH=~/.cargo/bin:$PATH" >> ~/.bashrc && \
     echo "export PS1='\u:\w$ '" >> ~/.bashrc
