@@ -17,8 +17,7 @@ RUN groupadd -g ${gid} ${group} \
 
 RUN apt-get update && \
     apt-get clean && \
-    curl https://sh.rustup.rs -sSf | sh -s -- --yes && \
-    rustup default stable
+    curl https://sh.rustup.rs -sSf | sh -s -- --yes 
 
 # Expose a port for web application traffic (note the variation from 8080 to avoid host clashes)
 EXPOSE 8088
