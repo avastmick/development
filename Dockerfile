@@ -18,12 +18,10 @@ RUN groupadd -g ${gid} ${group} \
 RUN apt-get update && \
     apt-get clean && \
     curl https://sh.rustup.rs -sSf | sh -s -- --yes && \
-    multirust default stable
+    rustup default stable
 
 # Expose a port for web application traffic (note the variation from 8080 to avoid host clashes)
 EXPOSE 8088
 # Set up to run in $HOME as the new $user
 WORKDIR ${AVASTMICK_HOME}
 USER ${user}
-
-RUN multirust default stable
