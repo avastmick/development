@@ -23,3 +23,5 @@ EXPOSE 8088
 # Set up to run in $HOME as the new $user
 WORKDIR ${AVASTMICK_HOME}
 USER ${user}
+
+# Just something to test SSL
