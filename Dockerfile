@@ -1,4 +1,4 @@
-FROM ubuntu:xenial
+FROM debian:latest
 
 MAINTAINER avastmick <avastmick.outlook.com>
 
