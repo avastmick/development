@@ -14,7 +14,7 @@ The idea is that you don't need to install any development tools on your machine
 
 |image name |installed|notes|
 |:---|:---|:---|
-|``ubuntu:xenial``|Ubuntu 16.04|Base image
+|``debian:latest``|Debian|Base image
 |``avastmick/development:base``|standard tools|The base image|
 |``avastmick/development:python``|python tools|Typical python dev tooling|
 |``avastmick/development:rust``|multirust||

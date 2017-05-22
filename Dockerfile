@@ -33,7 +33,7 @@ RUN apt-get update && \
     apt-get clean
 
 
-ENV TINI 0.14.0
+ENV TINI_VERSION 0.14.0
 # ${TINI_VERSION}
 ENV TINI_SHA b2d2b6d7f570158ae5eccbad9b98b5e9f040f853
 
