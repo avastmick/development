@@ -1,4 +1,4 @@
-FROM abernix/meteord:base
+FROM abernix/meteord:devbuild
 
 MAINTAINER avastmick <avastmick.outlook.com>
 
@@ -28,8 +28,6 @@ RUN groupadd -g ${gid} ${group} \
     && adduser ${user} sudo \
     && echo "${user}:temp" | chpasswd 
 
-# Install Meteor
-RUN bash $METEORD_DIR/lib/install_meteor.sh
 
 # ${TINI_VERSION}
 ENV TINI_VERSION 0.16.1
@@ -42,7 +40,5 @@ USER ${user}
 # This is where any repositories should be mounted
 WORKDIR ${HOME}
 
-# Install Meteor locally
-RUN bash meteor
 
 ENTRYPOINT ["/bin/tini", "--"]
