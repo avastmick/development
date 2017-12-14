@@ -14,7 +14,7 @@ MAINTAINER avastmick <avastmick.outlook.com>
 WORKDIR /src
 
 
-ENV TINI_VERSION v0.16.1
+ENV TINI_VERSION 0.16.1
 # ${TINI_VERSION}
 
 # Use tini as subreaper in Docker container to adopt zombie processes
