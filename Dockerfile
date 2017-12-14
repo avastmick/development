@@ -20,9 +20,17 @@ ARG gid=1000
 RUN groupadd -g ${gid} ${group} \
     && useradd -d "$HOME" -u ${uid} -g ${gid} -m -s /bin/bash ${user} \
     && adduser ${user} sudo \
-    && echo ${user}:temp | chpasswd
+    && chage -d 0 ${user}
+
 
 RUN bash $METEORD_DIR/lib/install_meteor.sh
+
+ENV TINI_VERSION 0.16.1
+# ${TINI_VERSION}
+
+# Use tini as subreaper in Docker container to adopt zombie processes
+RUN curl -fsSL https://github.com/krallin/tini/releases/download/v${TINI_VERSION}/tini-static -o /bin/tini && chmod +x /bin/tini 
+
 
 # USER ${user}
 # This is where any repositories should be mounted
