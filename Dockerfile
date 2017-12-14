@@ -23,14 +23,15 @@ RUN groupadd -g ${gid} ${group} \
     && echo ${user}:temp | chpasswd
 
 #
-USER ${user}
-# This is where any repositories should be mounted
-WORKDIR ${HOME}
-
 ENV TINI_VERSION 0.16.1
 # ${TINI_VERSION}
 
 # Use tini as subreaper in Docker container to adopt zombie processes
 RUN curl -fsSL https://github.com/krallin/tini/releases/download/v${TINI_VERSION}/tini-static -o /bin/tini && chmod +x /bin/tini 
+
+
+USER ${user}
+# This is where any repositories should be mounted
+WORKDIR ${HOME}
 
 ENTRYPOINT ["/bin/tini", "--"]
