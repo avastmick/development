@@ -26,20 +26,20 @@ RUN apt-get update && \
 RUN groupadd -g ${gid} ${group} \
     && useradd -d "$HOME" -u ${uid} -g ${gid} -m -s /bin/bash ${user} \
     && adduser ${user} sudo \
-    && chage -d 0 ${user}
+    && echo "${user}:temp" | chpasswd 
 
-# Install Meteor
-RUN bash $METEORD_DIR/lib/install_meteor.sh
-
-ENV TINI_VERSION 0.16.1
 # ${TINI_VERSION}
+ENV TINI_VERSION 0.16.1
 
 # Use tini as subreaper in Docker container to adopt zombie processes
 RUN curl -fsSL https://github.com/krallin/tini/releases/download/v${TINI_VERSION}/tini-static -o /bin/tini && chmod +x /bin/tini 
 
 
-# USER ${user}
+USER ${user}
 # This is where any repositories should be mounted
 WORKDIR ${HOME}
+
+# Install Meteor
+RUN bash $METEORD_DIR/lib/install_meteor.sh
 
 ENTRYPOINT ["/bin/tini", "--"]
