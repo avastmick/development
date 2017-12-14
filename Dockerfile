@@ -22,15 +22,9 @@ RUN groupadd -g ${gid} ${group} \
     && adduser ${user} sudo \
     && echo ${user}:temp | chpasswd
 
-#
-ENV TINI_VERSION 0.16.1
-# ${TINI_VERSION}
+RUN bash $METEORD_DIR/lib/install_meteor.sh
 
-# Use tini as subreaper in Docker container to adopt zombie processes
-RUN curl -fsSL https://github.com/krallin/tini/releases/download/v${TINI_VERSION}/tini-static -o /bin/tini && chmod +x /bin/tini 
-
-
-USER ${user}
+# USER ${user}
 # This is where any repositories should be mounted
 WORKDIR ${HOME}
 
