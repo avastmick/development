@@ -40,6 +40,6 @@ USER ${user}
 WORKDIR ${HOME}
 
 # Install Meteor
-RUN bash $METEORD_DIR/lib/install_meteor.sh
+RUN bash $METEORD_DIR/lib/install_meteor.sh && meteor
 
 ENTRYPOINT ["/bin/tini", "--"]
