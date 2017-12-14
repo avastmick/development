@@ -16,13 +16,19 @@ ARG group=avastmick
 ARG uid=1000
 ARG gid=1000
 
+RUN apt-get update && \
+    apt-get install --no-install-recommends -y \
+    sudo \
+    && \
+    apt-get clean
+
 # add a viable user, instead of root as some tools don't play well with root
 RUN groupadd -g ${gid} ${group} \
     && useradd -d "$HOME" -u ${uid} -g ${gid} -m -s /bin/bash ${user} \
     && adduser ${user} sudo \
     && chage -d 0 ${user}
 
-
+# Install Meteor
 RUN bash $METEORD_DIR/lib/install_meteor.sh
 
 ENV TINI_VERSION 0.16.1
