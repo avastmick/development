@@ -9,10 +9,21 @@ MAINTAINER avastmick <avastmick.outlook.com>
 # for development
 #
 ###########################################
+ARG user=avastmick
+ARG group=avastmick
+ARG uid=1000
+ARG gid=1000
 
+# add a viable user, instead of root as some tools don't play well with root
+RUN groupadd -g ${gid} ${group} \
+    && useradd -d "$AVASTMICK_HOME" -u ${uid} -g ${gid} -m -s /bin/bash ${user} \
+    && adduser ${user} sudo \
+    && echo ${user}:temp | chpasswd
+
+#
+USER ${user}
 # This is where any repositories should be mounted
 WORKDIR /src
-
 
 ENV TINI_VERSION 0.16.1
 # ${TINI_VERSION}
