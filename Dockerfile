@@ -29,7 +29,7 @@ RUN groupadd -g ${gid} ${group} \
     && echo "${user}:temp" | chpasswd 
 
 # Install Meteor
-RUN bash $METEORD_DIR/lib/install_meteor.sh && meteor
+RUN bash $METEORD_DIR/lib/install_meteor.sh
 
 # ${TINI_VERSION}
 ENV TINI_VERSION 0.16.1
